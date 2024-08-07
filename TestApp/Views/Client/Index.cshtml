@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <br />
+
+    <div class="card">
+        <div class="card-header">
+            Control de clientes
+        </div>
+        <div class="card-body">
+            @{ Html.RenderPartial("modal"); }
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <button id="btn-agregar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-client">Agregar</button>
+                </div>
+                <br />
+                <br />
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Identificacion</th>
+                                <th>Tipo de identificacion</th>
+                                <th>Primer nombre</th>
+                                <th>Segundo nombre</th>
+                                <th>Primer apellido</th>
+                                <th>Segundo apellido</th>
+                                <th>Direccion</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.List)
+                            {
+                                <tr>
+                                    <td>@item.identificacion</td>
+                                    <td>@item.tipo_identificacion</td>
+                                    <td>@item.primer_nombre</td>
+                                    <td>@item.segundo_nombre</td>
+                                    <td>@item.primer_apellido</td>
+                                    <td>@item.segundo_apellido</td>
+                                    <td>@item.direccion</td>
+                                    <td>@item.estado</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-primary btnedit" data-bs-toggle="modal" data-bs-target="#modal-client" data-id="@item.id_cliente"
+                                                    data-identificacion="@item.identificacion"
+                                                    data-tipo="@item.tipo_identificacion"
+                                                    data-pnombre="@item.primer_nombre"
+                                                    data-snombre="@item.segundo_nombre"
+                                                    data-papellido="@item.primer_apellido"
+                                                    data-sapellido="@item.segundo_apellido"
+                                                    data-cbdireccion="@item.id_direccion"
+                                                    data-estado="@item.estado">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                            </button>
+
+                                           
+                                            <button type="button" class="btn btn-danger btnbaja" data-id="@item.id_cliente" @Html.Raw(item.estado == "Inactivo" ? "disabled=\"disabled\"" : "")><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

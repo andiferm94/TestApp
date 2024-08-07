@@ -1,0 +1,87 @@
+﻿<div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-client">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Cliente</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="frmCliente" method="post">
+                    <div class="modal-body">
+
+
+                        <div class="row">
+                            <input type="hidden" name="id" id="id" />
+                            <div class="col-md-6">
+                                <label for="txtidentificacion" class="form-label">Identificacion (*)</label>
+                                <input type="text" class="form-control" name="txtidentificacion" id="txtidentificacion" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cbtipo" class="form-label">Tipo de identificacion (*) </label>
+
+                                <select class="form-select" aria-label="Seleccione una opción" name="cbtipo" id="cbtipo">
+                                    <option selected value="N">Cedula Nicaragüense</option>
+                                    <option value="P">Pasaporte</option>
+
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="txtprimer_nombre" class="form-label">Primer Nombre(*)</label>
+                                <input type="text" class="form-control" name="txtprimer_nombre" id="txtprimer_nombre" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtsegundo_nombre" class="form-label">Segundo Nombre</label>
+                                <input type="text" class="form-control" name="txtsegundo_nombre" id="txtsegundo_nombre">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="txtprimer_apellido" class="form-label">Primer Apellido(*)</label>
+                                <input type="text" class="form-control" name="txtprimer_apellido" id="txtprimer_apellido" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="txtsegundo_apellido" class="form-label">Segundo Apellido</label>
+                                <input type="text" class="form-control" name="txtsegundo_apellido" id="txtsegundo_apellido">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="cbdireccion" class="form-label">Direccion(*)</label>
+                                <select class="form-select" aria-label="Seleccione una opción" name="cbdireccion" id="cbdireccion">
+                                    @foreach (var item in ViewBag.cbdireccion)
+                                    {
+                                        <option value="@item.Id">@item.Descripcion</option>
+
+                                    }
+
+
+
+
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtestado" class="form-label">Estado</label>
+                                <input type="text" name="txtestado" id="txtestado" class="form-control" value="Activo" readonly />
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" id="btguardar" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
